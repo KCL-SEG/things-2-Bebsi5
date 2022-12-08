@@ -11,5 +11,7 @@ class ThingForm(forms.ModelForm):
 
         model = Thing
         fields = ['name', 'description', 'quantity']
-        description = forms.CharField(widget=forms.Textarea)
-        quantity = forms.IntegerField(widget=forms.NumberInput)
+        widget = {
+            'description': forms.Textarea(),
+            'quantity': forms.NumberInput(),
+        }

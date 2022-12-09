@@ -2,16 +2,12 @@
 
 from django import forms
 from django.core.validators import RegexValidator
-from .models import *
+from .models import Thing
 class ThingForm(forms.ModelForm):
-    """Form for the Thing model."""
-
     class Meta:
-        """Meta class for the ThingForm."""
-
         model = Thing
         fields = ['name', 'description', 'quantity']
-        widget = {
+        widgets = {
             'description': forms.Textarea(),
             'quantity': forms.NumberInput(),
         }
